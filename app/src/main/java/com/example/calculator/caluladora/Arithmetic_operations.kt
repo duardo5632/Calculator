@@ -1,5 +1,9 @@
 package com.example.calculator.caluladora
 
-class Arithmetic_operations {
+enum class Arithmetic_operations(val Arithmetic:Char) {
 
+    Addition('+'),
+    Subtraction('-'),
+    Division('÷'),
+    Multiply('×'),
 }

@@ -101,8 +101,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="/"
-                    android:textSize="25sp" />
+                    android:text="÷"
+                    android:textSize="30sp" />
 
             </LinearLayout>
 
@@ -119,6 +119,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="9"
+                    android:id="@+id/nueve"
                     android:textSize="25dp" />
 
                 <com.google.android.material.button.MaterialButton
@@ -127,6 +128,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="8"
+                    android:id="@+id/ocho"
                     android:textSize="25dp" />
 
 
@@ -137,6 +139,7 @@
                     android:layout_weight="1"
                     android:width="1dp"
                     android:text="7"
+                    android:id="@+id/siete"
                     android:textSize="25dp" />
 
                 <com.google.android.material.button.MaterialButton
@@ -162,6 +165,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="6"
+                    android:id="@+id/seis"
                     android:textSize="25dp" />
 
                 <com.google.android.material.button.MaterialButton
@@ -170,6 +174,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="5"
+                    android:id="@+id/cinco"
                     android:textSize="25dp" />
 
 
@@ -179,6 +184,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:width="1dp"
+                    android:id="@+id/cuatro"
                     android:text="4"
                     android:textSize="25dp" />
 
@@ -204,6 +210,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:id="@+id/tres"
                     android:text="3"
                     android:textSize="25sp" />
 
@@ -212,6 +219,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:id="@+id/dos"
                     android:text="2"
                     android:textSize="25sp" />
 
@@ -223,6 +231,7 @@
                     android:layout_weight="1"
                     android:width="1dp"
                     android:text="1"
+                    android:id="@+id/uno"
                     android:textSize="25sp" />
 
                 <com.google.android.material.button.MaterialButton
@@ -253,6 +262,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="0"
+                    android:id="@+id/cero"
                     android:textSize="25sp" />
 
 
@@ -263,6 +273,7 @@
                     android:layout_weight="1"
                     android:width="1dp"
                     android:text="."
+                    android:id="@+id/punto"
                     android:textSize="25sp" />
 
                 <com.google.android.material.button.MaterialButton
@@ -272,7 +283,8 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="="
-                    android:textSize="25sp" />
+                    android:textSize="25sp"/>
+
 
             </LinearLayout>
 
