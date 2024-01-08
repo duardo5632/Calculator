@@ -5,5 +5,5 @@ enum class Arithmetic_operations(val Arithmetic:Char) {
     Addition('+'),
     Subtraction('-'),
     Division('÷'),
-    Multiply('×'),
+    Multiply('×')
 }
