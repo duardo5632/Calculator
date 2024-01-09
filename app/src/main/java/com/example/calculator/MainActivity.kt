@@ -4,8 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.calculator.databinding.ActivityMainBinding
 import com.google.android.material.button.MaterialButton
-import net.objecthunter.exp4j.ExpressionBuilder
-import java.lang.ArithmeticException
 
 class MainActivity : AppCompatActivity() {
 
