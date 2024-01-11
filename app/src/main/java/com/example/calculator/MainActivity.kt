@@ -8,6 +8,7 @@ import com.google.android.material.button.MaterialButton
 class MainActivity : AppCompatActivity() {
 
     private var binding: ActivityMainBinding? = null
+    //es para saber que estamos poniendo en el put
     private var expression = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,7 +24,7 @@ class MainActivity : AppCompatActivity() {
             binding?.zero, binding?.one, binding?.two, binding?.three, binding?.four,
             binding?.five, binding?.six, binding?.seven, binding?.eight, binding?.nine
         )
-
+        //lo que hace que los numeros se puedan ver en el texto
         numberButtons.forEach { button ->
             button?.setOnClickListener {
                 val Num = (it as MaterialButton).text.toString()
@@ -46,7 +47,6 @@ class MainActivity : AppCompatActivity() {
         operationButtons.forEach{ button ->
             button?.setOnClickListener {
                 val operation = (it as MaterialButton).text.toString()
-
                 if(selectedoperation == null){
                     selectedoperation = operation[0]
                     expression += operation
@@ -55,6 +55,7 @@ class MainActivity : AppCompatActivity() {
                     expression += operation
                     selectedoperation = operation[0]
                 }
+                putText?.text = expression
             }
         }
     }
