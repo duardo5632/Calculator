@@ -41,11 +41,20 @@ class MainActivity : AppCompatActivity() {
             binding?.addition, binding?.subtraction, binding?.multiply, binding?.divide
         )
 
+        var selectedoperation:Char? = null
+
         operationButtons.forEach{ button ->
             button?.setOnClickListener {
                 val operation = (it as MaterialButton).text.toString()
-                expression += operation
-                putText?.text = expression
+
+                if(selectedoperation == null){
+                    selectedoperation = operation[0]
+                    expression += operation
+                }else{
+                    expression = expression.dropLast(1)
+                    expression += operation
+                    selectedoperation = operation[0]
+                }
             }
         }
     }
