@@ -1,8 +1,10 @@
 package com.example.calculator
 
+import android.media.VolumeShaper.Operation
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.calculator.databinding.ActivityMainBinding
+import com.example.calculator.operations.arithmetic_operations
 import com.google.android.material.button.MaterialButton
 
 class MainActivity : AppCompatActivity() {
@@ -42,11 +44,22 @@ class MainActivity : AppCompatActivity() {
             binding?.addition, binding?.subtraction, binding?.multiply, binding?.divide
         )
 
-        operationButtons.forEach{ button ->
+        operationButtons.forEach { button ->
             button?.setOnClickListener {
                 val operation = (it as MaterialButton).text.toString()
                 expression += operation
                 putText?.text = expression
+            }
+        }
+
+        //
+        fun Operation(button: MaterialButton) {
+            when (button) {
+                binding?.addition -> arithmetic_operations.ADDITION
+                binding?.divide -> arithmetic_operations.DIVISION
+                binding?.multiply -> arithmetic_operations.MULTIPLICATION
+                binding?.subtraction -> arithmetic_operations.SUBTRACTION
+                else -> null
             }
         }
     }

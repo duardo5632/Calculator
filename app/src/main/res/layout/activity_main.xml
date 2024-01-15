@@ -155,7 +155,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:id="@+id/multiply"
-                    android:text="x"
+                    android:text="X"
                     android:textSize="25sp" />
 
             </LinearLayout>
@@ -200,7 +200,7 @@
                     android:id="@+id/subtraction"
                     style="?attr/materialIconButtonStyle"
                     android:layout_width="match_parent"
-                    android:layout_height="90dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="-"
                     android:textSize="30sp" />

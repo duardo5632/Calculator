@@ -1,9 +1,10 @@
 package com.example.calculator.operations
 
-enum class operaciones_aritmeticas( val value: Char) {
+enum class arithmetic_operations( val value: Char) {
 
-    ADICION('+'),
-    RESTA('-'),
+    ADDITION('+'),
+    SUBTRACTION('-'),
     DIVISION('÷'),
-    MULTIPLICACION('×')
+    MULTIPLICATION('×')
+
 }
