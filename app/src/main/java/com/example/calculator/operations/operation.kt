@@ -2,16 +2,19 @@ package com.example.calculator.operations
 
 class operation(private val arithmeticOperations: arithmetic_operations) {
 
-    fun OPERATIONS(num1: Double, num2: Double): Double{
-        return when(arithmeticOperations){
-            arithmetic_operations.ADDITION -> num1 + num2
-            arithmetic_operations.SUBTRACTION -> num1 - num2
-            arithmetic_operations.MULTIPLICATION -> num1 * num2
-            arithmetic_operations.DIVISION -> num1 / num2
+    fun evaluateExpression(expre: String) {
+
+        val tokens = expre.split(" ")
+
+        val result = tokens[0].toDoubleOrNull()?: 0.0
+
+        for (i in 1 until  tokens.size step  2){
+            val operator = tokens[i]
+
+
         }
+
+
     }
 
-    override fun toString(): String {
-        return arithmeticOperations.value.toString()
-    }
 }

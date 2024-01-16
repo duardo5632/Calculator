@@ -52,15 +52,5 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        //
-        fun Operation(button: MaterialButton) {
-            when (button) {
-                binding?.addition -> arithmetic_operations.ADDITION
-                binding?.divide -> arithmetic_operations.DIVISION
-                binding?.multiply -> arithmetic_operations.MULTIPLICATION
-                binding?.subtraction -> arithmetic_operations.SUBTRACTION
-                else -> null
-            }
-        }
     }
 }
