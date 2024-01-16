@@ -13,8 +13,6 @@ class operation(private val arithmeticOperations: arithmetic_operations) {
 
 
         }
-
-
     }
 
 }
