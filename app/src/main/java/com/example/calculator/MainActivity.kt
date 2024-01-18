@@ -51,6 +51,5 @@ class MainActivity : AppCompatActivity() {
                 putText?.text = expression
             }
         }
-
     }
 }
