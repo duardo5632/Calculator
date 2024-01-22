@@ -1,10 +1,9 @@
 package com.example.calculator
 
-import android.media.VolumeShaper.Operation
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.calculator.databinding.ActivityMainBinding
-import com.example.calculator.operations.arithmetic_operations
+import com.example.calculator.operations.evaluateExpression
 import com.google.android.material.button.MaterialButton
 
 class MainActivity : AppCompatActivity() {
@@ -39,6 +38,7 @@ class MainActivity : AppCompatActivity() {
         val equalButton = binding?.equal
 
         //ver si puedo hacerlo mejor porque se repiten los signos y no debe ser asi
+
         // expreciones logaritmicas
         val operationButtons = listOf(
             binding?.addition, binding?.subtraction, binding?.multiply, binding?.divide
@@ -50,6 +50,18 @@ class MainActivity : AppCompatActivity() {
                 expression += operation
                 putText?.text = expression
             }
+        }
+
+        equalButton?.setOnClickListener {
+
+            // Llama a la función evaluateExpression para obtener el resultado
+            val result = evaluateExpression(expression)
+
+            // Actualiza la variable expression con el resultado
+            expression = result.toString()
+
+            // Muestra el resultado en el TextView
+            putText?.text = expression
         }
     }
 }
