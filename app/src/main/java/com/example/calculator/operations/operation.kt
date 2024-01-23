@@ -1,14 +1,11 @@
 package com.example.calculator.operations
 
-import kotlin.time.times
 
-//no detecta los signos
-//ver quien almacena las operaciones aritmeticas
 fun evaluateExpression(expre: String):Number {
 
-    //val tokens = expre.split(" ")
-
+    //les da un significado a cada operacion aritmetica
     val regex = Regex("""([\d.]+|[+\-x÷])""")
+    //busca y encuentra considencias en expre segun el patron de regex y creando una lista de esos valores
     val tokens = regex.findAll(expre).map { it.value }.toList()
 
     //donde se muestra la respuesta del calculo
@@ -16,11 +13,9 @@ fun evaluateExpression(expre: String):Number {
 
     for (i in 1 until  tokens.size step  2){
 
-        //ver si puedo quitar la linea de codigo operator
-        val operator = tokens[i]
         val operand = tokens[i + 1].toDoubleOrNull()?:0.0
 
-        result = when(operator){
+        result = when(tokens[i]){
             "+" -> result + operand
             "-" -> result - operand
             "x" -> result * operand
