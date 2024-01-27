@@ -11,6 +11,7 @@ class MainActivity : AppCompatActivity() {
     private var binding: ActivityMainBinding? = null
     //es para saber que estamos poniendo en el put
     private var expression = ""
+    private val historyList = mutableListOf<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,9 +35,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        //boton igual
-        val equalButton = binding?.equal
-
         //ver si puedo hacerlo mejor porque se repiten los signos y no debe ser asi
 
         // expreciones logaritmicas
@@ -52,16 +50,78 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        equalButton?.setOnClickListener {
+        val point = binding?.point
 
+        point?.setOnClickListener {
+            expression += "."
+            putText?.text = expression
+        }
+
+        //boton igual
+        val equalButton = binding?.equal
+
+        equalButton?.setOnClickListener {
             // Llama a la función evaluateExpression para obtener el resultado
             val result = evaluateExpression(expression)
+
+            // Agrega la expresión y el resultado al historial
+            val historyEntry = "$expression = $result"
+            historyList.add(historyEntry)
 
             // Actualiza la variable expression con el resultado
             expression = result.toString()
 
             // Muestra el resultado en el TextView
             putText?.text = expression
+
+            // Actualiza el historial en el TextView de historial
+            binding?.record?.text = historyList.joinToString("\n")
+        }
+
+        val remove = binding?.eliminate
+
+        remove?.setOnClickListener {
+            // Verifica que la expresión no esté vacía antes de intentar eliminar
+            // el último carácter
+            if (expression.isNotEmpty()) {
+                // Elimina el último carácter
+                expression = expression.dropLast(1)
+
+                // Muestra la modificación
+                putText?.text = expression
+            }
+        }
+
+        val delete = binding?.delete
+
+        delete?.setOnClickListener {
+            if (expression.isNotEmpty()) {
+                // Si expression no está vacío, eliminar todo el contenido
+                expression = StringBuilder().toString()
+
+                // Actualizar la interfaz de usuario si es necesario
+                putText?.text = expression
+            }
+        }
+
+        val delete_all = binding?.EraseEverything
+
+        delete_all?.setOnClickListener {
+            if (expression.isNotEmpty()) {
+                // Si expression no está vacío, eliminar todo el contenido
+                expression = StringBuilder().toString()
+
+                // Actualizar la interfaz de usuario si es necesario
+                putText?.text = expression
+            }
+
+            if(historyList.isNotEmpty()){
+                //elimina todo
+                historyList.clear()
+
+                //lo que aparece
+                binding?.record?.text = ""
+            }
         }
     }
 }
