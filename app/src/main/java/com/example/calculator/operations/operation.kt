@@ -23,7 +23,7 @@ fun evaluateExpression(expre: String):Number {
             else -> result
         }
     }
-    //condicion que dice que si el reultado no tiene indice y
+    //condicion que dice que si el resultado no tiene indice y
     // es un numero entero entonces que la respuesta sea un numero entero y no un 0.0
     return if (result % 1 == 0.0) result.toInt() else result
 }

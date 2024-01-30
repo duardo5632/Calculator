@@ -62,22 +62,24 @@ class MainActivity : AppCompatActivity() {
 
         equalButton?.setOnClickListener {
             // Llama a la función evaluateExpression para obtener el resultado
-            val result = evaluateExpression(expression)
+            if (expression.isNotEmpty()){
 
-            // Agrega la expresión y el resultado al historial
-            val historyEntry = "$expression = $result"
-            historyList.add(historyEntry)
+                val result = evaluateExpression(expression)
 
-            // Actualiza la variable expression con el resultado
-            expression = result.toString()
+                // Agrega la expresión y el resultado al historial
+                val historyEntry = "$expression = $result"
+                historyList.add(historyEntry)
 
-            // Muestra el resultado en el TextView
-            putText?.text = expression
+                // Actualiza la variable expression con el resultado
+                expression = result.toString()
 
-            // Actualiza el historial en el TextView de historial
-            binding?.record?.text = historyList.joinToString("\n")
+                // Muestra el resultado en el TextView
+                putText?.text = expression
+
+                // Actualiza el historial en el TextView de historial
+                binding?.record?.text = historyList.joinToString("\n")
+            }
         }
-
         val remove = binding?.eliminate
 
         remove?.setOnClickListener {
