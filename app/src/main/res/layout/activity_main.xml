@@ -37,6 +37,16 @@
             app:layout_constraintStart_toStartOf="parent">
 
             <TextView
+                android:id="@+id/record"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:textAlignment="textEnd"
+                android:textColor="@color/Grey"
+                android:textSize="30sp"
+                tools:text="0" />
+
+            <TextView
                 android:id="@+id/put"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -44,7 +54,6 @@
                 android:textAlignment="textEnd"
                 android:textSize="40sp"
                 tools:text="0" />
-
 
             <View
                 android:id="@+id/view"
@@ -60,9 +69,127 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.button.MaterialButton
+                    style="?attr/materialIconButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    android:id="@+id/pi"
+                    android:text="π"
+                    android:textSize="20sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    style="?attr/materialIconButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:id="@+id/square_root"
+                    android:text="√"
+                    android:visibility="gone"
+                    android:textSize="20sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    style="?attr/materialIconButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="("
+                    android:id="@+id/open_parentheses"
+                    android:layout_gravity=""
+                    android:visibility="gone"
+                    android:textSize="20sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    style="?attr/materialIconButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text=")"
+                    android:id="@+id/close_parentheses"
+                    android:visibility="gone"
+                    android:textSize="20sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    style="?attr/materialIconButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="log"
+                    android:id="@+id/log"
+                    android:visibility="gone"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    style="?attr/materialIconButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="DEG"
+                    android:id="@+id/Deg"
+                    android:visibility="gone"
+                    android:textSize="20sp"/>
+
+                <com.google.android.material.button.MaterialButton
+                    style="?attr/materialIconButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="sin"
+                    android:id="@+id/sin"
+                    android:visibility="gone"
+                    android:textSize="20sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    style="?attr/materialIconButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    android:id="@+id/cos"
+                    android:text="cos"
+                    android:textSize="20sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    style="?attr/materialIconButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    android:id="@+id/tan"
+                    android:text="tan"
+                    android:textSize="20sp"/>
+
+                <com.google.android.material.button.MaterialButton
+                    style="?attr/materialIconButtonStyle"
+                    android:id="@+id/e"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone"
+                    android:layout_weight="1"
+                    android:text="e"
+                    android:textSize="20sp"/>
+
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="59dp"
                 android:layout_weight="1"
                 android:orientation="horizontal">
+
 
 
                 <com.google.android.material.button.MaterialButton
@@ -253,11 +380,16 @@
                 android:layout_weight="1"
                 android:orientation="horizontal">
 
-
-                <View
+                <com.google.android.material.button.MaterialButton
+                    style="?attr/materialIconButtonStyle"
+                    android:id="@+id/Showmore"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    app:icon="@drawable/sync"
+                    app:iconGravity="textStart"
+                    app:iconSize="25sp"/>
+
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/zero"
@@ -265,8 +397,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="0"
-                    android:textSize="25sp" />
+                    android:textSize="25sp"
+                    android:text="0" />
 
 
                 <com.google.android.material.button.MaterialButton
@@ -296,19 +428,6 @@
 
 
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/record"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0"
-            android:textAlignment="textEnd"
-            android:textColor="@color/Grey"
-            android:textSize="30sp"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:text="0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

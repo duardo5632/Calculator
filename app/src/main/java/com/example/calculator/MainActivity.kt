@@ -2,6 +2,7 @@ package com.example.calculator
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import com.example.calculator.databinding.ActivityMainBinding
 import com.example.calculator.operations.evaluateExpression
 import com.google.android.material.button.MaterialButton
@@ -123,6 +124,20 @@ class MainActivity : AppCompatActivity() {
 
                 //lo que aparece
                 binding?.record?.text = ""
+            }
+        }
+
+        val list = listOf(binding?.e, binding?.Deg, binding?.tan, binding?.cos, binding?.log, binding?.pi,
+            binding?.sin, binding?.pi, binding?.squareRoot, binding?.openParentheses, binding?.closeParentheses
+        )
+
+        var isVisible = false
+
+        binding?.Showmore?.setOnClickListener {
+            isVisible = !isVisible
+
+            list.forEach{button ->
+                button?.visibility = if (isVisible) View.VISIBLE else View.GONE
             }
         }
     }
