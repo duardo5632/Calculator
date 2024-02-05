@@ -1,17 +1,24 @@
 package com.example.calculator.operations
 
-import com.example.calculator.valou
 
 //maneja la evaluación de expresiones aritméticas
 fun evaluateExpression(expre: String):Number {
 
+    // Define el valor de 'e'
+    val eValue = 2.71828182846
+    // Reemplaza todas las instancias de "e" con el valor de 'e'
+    val expressionWithE = expre.replace("e", eValue.toString())
+
+    // También puedes realizar el reemplazo para "π" si es necesario
+    val Pivalue = 3.14159265359
+    val expressionWithPi = expressionWithE.replace("π", Pivalue.toString())
 
     //les da un significado a cada operacion aritmetica
     val regex = Regex("""([\d.]+|[+\-x÷])""")
 
     //busca y encuentra considencias en expre segun el patron de regex
     // y creando una lista de esos valores
-    val tokens = regex.findAll(valou(expre).toString()).map { it.value }.toList()
+    val tokens = regex.findAll(expressionWithPi).map { it.value }.toList()
 
     //donde se muestra la respuesta del calculo
     var result = tokens.firstOrNull()?.toDoubleOrNull() ?: 0.0

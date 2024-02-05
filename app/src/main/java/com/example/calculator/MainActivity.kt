@@ -78,6 +78,8 @@ class MainActivity : AppCompatActivity() {
                 // Muestra el resultado en el TextView
                 putText?.text = expression
 
+
+
                 // Actualiza el historial en el TextView de historial
                 binding?.record?.text = historyList.joinToString("\n")
             }
@@ -143,17 +145,15 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding?.e?.setOnClickListener {
+
             expression += "e"
 
-            putText?.text = expression
-
-            val result = valou(expression)
-
-            putText?.text = result.toString()
+            putText?.text = expression.toString()
 
         }
 
         binding?.pi?.setOnClickListener {
+
             expression += "π"
 
             putText?.text = expression
