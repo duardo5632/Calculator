@@ -71,6 +71,7 @@ class MainActivity : AppCompatActivity() {
                 val historyEntry = "$expression = $result"
                 historyList.add(historyEntry)
 
+
                 // Actualiza la variable expression con el resultado
                 expression = result.toString()
 
@@ -139,6 +140,24 @@ class MainActivity : AppCompatActivity() {
             list.forEach{button ->
                 button?.visibility = if (isVisible) View.VISIBLE else View.GONE
             }
+        }
+
+        binding?.e?.setOnClickListener {
+            expression += "e"
+
+            putText?.text = expression
+
+            val result = valou(expression)
+
+            putText?.text = result.toString()
+
+        }
+
+        binding?.pi?.setOnClickListener {
+            expression += "π"
+
+            putText?.text = expression
+
         }
     }
 }
