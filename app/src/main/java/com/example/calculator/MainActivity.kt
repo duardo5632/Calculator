@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.example.calculator.databinding.ActivityMainBinding
+import com.example.calculator.operations.SquareRoot
 import com.example.calculator.operations.evaluateExpression
 import com.google.android.material.button.MaterialButton
 
@@ -63,22 +64,35 @@ class MainActivity : AppCompatActivity() {
 
         equalButton?.setOnClickListener {
             // Llama a la función evaluateExpression para obtener el resultado
-            if (expression.isNotEmpty()){
+            if (expression.isNotEmpty()) {
 
-                val result = evaluateExpression(expression)
+                var result: Number
+
+                // Verificar si hay una raíz cuadrada en la expresión
+                if (expression.contains("√")) {
+                    // Extraer el número para calcular la raíz cuadrada
+                    val number = expression.substringAfter("√").substringBefore("+").toDouble()
+                    // Calcular la raíz cuadrada
+                    val squareRootResult = SquareRoot(number)
+                    // Evaluar el resto de la expresión aritmética
+                    val restOfExpression = expression.substringAfter("√")
+                    val arithmeticResult = evaluateExpression(restOfExpression)
+                    // Combinar los resultados
+                    result = squareRootResult.toDouble() + arithmeticResult.toDouble()
+                } else {
+                    // Si no hay raíz cuadrada, evaluar la expresión aritmética completa
+                    result = evaluateExpression(expression)
+                }
 
                 // Agrega la expresión y el resultado al historial
                 val historyEntry = "$expression = $result"
                 historyList.add(historyEntry)
-
 
                 // Actualiza la variable expression con el resultado
                 expression = result.toString()
 
                 // Muestra el resultado en el TextView
                 putText?.text = expression
-
-
 
                 // Actualiza el historial en el TextView de historial
                 binding?.record?.text = historyList.joinToString("\n")
@@ -148,7 +162,7 @@ class MainActivity : AppCompatActivity() {
 
             expression += "e"
 
-            putText?.text = expression.toString()
+            putText?.text = expression
 
         }
 
@@ -157,6 +171,15 @@ class MainActivity : AppCompatActivity() {
             expression += "π"
 
             putText?.text = expression
+
+        }
+
+        binding?.squareRoot?.setOnClickListener {
+
+            expression += "√"
+
+            putText?.text = expression
+
 
         }
     }
