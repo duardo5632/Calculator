@@ -46,3 +46,30 @@ fun evaluateExpression(expre: String): Number {
 fun SquareRoot(number: Double): Number {
     return Math.sqrt(number)
 }
+
+fun calculateExpression(expression: String): Double {
+    // Verificar si hay una raíz cuadrada en la expresión
+    return if (expression.contains("√")) {
+        // Extraer el número para calcular la raíz cuadrada
+        val number = expression.substringAfter("√").toDouble()
+        // Calcular la raíz cuadrada
+        val squareRootResult = SquareRoot(number).toDouble()
+
+
+        // Evaluar el resto de la expresión aritmética
+        val restOfExpression = expression.substringBefore("√")
+
+        //val nextOperation = restOfExpression.substringBefore('+')
+
+        //si no me equivoco obtiene restOfExpression para tener el resto del codigo
+        //y lo resuelve con esa parte del codigo por ejemplo 5+
+        //problemente ya resuelto el problema evaluar mas
+        val arithmeticResult = evaluateExpression(restOfExpression + squareRootResult).toDouble()
+
+        // Combinar los resultados
+        arithmeticResult
+    } else {
+        // Si no hay raíz cuadrada, evaluar la expresión aritmética completa y devolver el resultado
+        evaluateExpression(expression).toDouble()
+    }
+}

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import com.example.calculator.databinding.ActivityMainBinding
 import com.example.calculator.operations.SquareRoot
+import com.example.calculator.operations.calculateExpression
 import com.example.calculator.operations.evaluateExpression
 import com.google.android.material.button.MaterialButton
 
@@ -66,23 +67,8 @@ class MainActivity : AppCompatActivity() {
             // Llama a la función evaluateExpression para obtener el resultado
             if (expression.isNotEmpty()) {
 
-                var result: Number
 
-                // Verificar si hay una raíz cuadrada en la expresión
-                if (expression.contains("√")) {
-                    // Extraer el número para calcular la raíz cuadrada
-                    val number = expression.substringAfter("√").substringBefore("+").toDouble()
-                    // Calcular la raíz cuadrada
-                    val squareRootResult = SquareRoot(number)
-                    // Evaluar el resto de la expresión aritmética
-                    val restOfExpression = expression.substringAfter("√")
-                    val arithmeticResult = evaluateExpression(restOfExpression)
-                    // Combinar los resultados
-                    result = squareRootResult.toDouble() + arithmeticResult.toDouble()
-                } else {
-                    // Si no hay raíz cuadrada, evaluar la expresión aritmética completa
-                    result = evaluateExpression(expression)
-                }
+                val result = calculateExpression(expression)
 
                 // Agrega la expresión y el resultado al historial
                 val historyEntry = "$expression = $result"
