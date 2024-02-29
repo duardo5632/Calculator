@@ -4,8 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.example.calculator.databinding.ActivityMainBinding
-import com.example.calculator.operations.SquareRoot
-import com.example.calculator.operations.calculateExpression
 import com.example.calculator.operations.evaluateExpression
 import com.google.android.material.button.MaterialButton
 
@@ -68,7 +66,7 @@ class MainActivity : AppCompatActivity() {
             if (expression.isNotEmpty()) {
 
 
-                val result = calculateExpression(expression)
+                val result = evaluateExpression(expression)
 
                 // Agrega la expresión y el resultado al historial
                 val historyEntry = "$expression = $result"
@@ -165,8 +163,6 @@ class MainActivity : AppCompatActivity() {
             expression += "√"
 
             putText?.text = expression
-
-
         }
     }
 }
