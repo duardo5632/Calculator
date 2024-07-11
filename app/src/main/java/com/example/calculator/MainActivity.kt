@@ -134,35 +134,5 @@ class MainActivity : AppCompatActivity() {
 
         var isVisible = false
 
-        binding?.Showmore?.setOnClickListener {
-            isVisible = !isVisible
-
-            list.forEach{button ->
-                button?.visibility = if (isVisible) View.VISIBLE else View.GONE
-            }
-        }
-
-        binding?.e?.setOnClickListener {
-
-            expression += "e"
-
-            putText?.text = expression
-
-        }
-
-        binding?.pi?.setOnClickListener {
-
-            expression += "π"
-
-            putText?.text = expression
-
-        }
-
-        binding?.squareRoot?.setOnClickListener {
-
-            expression += "√"
-
-            putText?.text = expression
-        }
     }
 }

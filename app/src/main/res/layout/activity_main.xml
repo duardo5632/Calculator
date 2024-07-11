@@ -380,16 +380,16 @@
                 android:layout_weight="1"
                 android:orientation="horizontal">
 
+
                 <com.google.android.material.button.MaterialButton
-                    style="?attr/materialIconButtonStyle"
                     android:id="@+id/Showmore"
+                    style="?attr/materialIconButtonStyle"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     app:icon="@drawable/sync"
                     app:iconGravity="textStart"
-                    app:iconSize="25sp"/>
-
+                    app:iconSize="25sp" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/zero"
